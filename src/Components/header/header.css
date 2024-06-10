@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header__content h1{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: rgb(80, 43, 226);
+    font-weight: bold;
+}
+
+.header__content p{
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.add-btn{
+    background-color: rgb(101, 70, 226);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+}
+
+.header__form{
+    display: flex;
+}

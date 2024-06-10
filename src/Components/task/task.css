@@ -1,0 +1,26 @@
+.task{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.task__content p{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.task button{
+    background-color: red;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: white;
+}
