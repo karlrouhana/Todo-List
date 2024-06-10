@@ -5,8 +5,13 @@ import { toggleForm } from '../../redux/actions';
 import TaskForm from '../taskform/TaskForm';
 import './header.css';
 
-const Header = ({ toggleForm }) => {
+const Header = ({ toggleForm, tasks }) => {
   const [visibile, setVisible] = useState(false);
+
+  const currentDate = new Date();
+  const options = { weekday: 'long', day: 'numeric', month: 'short' };
+  const formattedDate = currentDate.toLocaleDateString('en-US', options);
+
 
   function handleButtonClick() {
     setVisible(!visibile);
@@ -15,8 +20,8 @@ const Header = ({ toggleForm }) => {
   return (
     <div className="header">
       <div className="header__content">
-        <h1>Friday, 10 Nov</h1>
-        <p>3</p>
+        <h1>{formattedDate}</h1>
+        <p>{tasks.length}</p>
       </div>
       <div>
         {!visibile ?
@@ -30,8 +35,14 @@ const Header = ({ toggleForm }) => {
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    tasks: state.tasks
+  };
+};
+
 const mapDispatchToProps = {
   toggleForm,
 };
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
