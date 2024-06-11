@@ -1,0 +1,23 @@
+.tasklist__buttons{
+    display: flex;
+    gap: 5px;
+    margin: 20px 0px;
+}
+.tasklist__buttons-filter{
+    background-color: white;
+    border: 1px solid rgb(80, 43, 226);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(80, 43, 226);
+}
+
+.active{
+    background-color: rgb(80, 43, 226);
+    border: 1px solid rgb(80, 43, 226);
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+
+}

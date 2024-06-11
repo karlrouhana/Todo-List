@@ -11,6 +11,7 @@ const reducer = (state = initialState, action) => {
     case ADD_TASK:
       const newTask = {
         id: state.lastId + 1,
+        checked: false,
         ...action.payload,
       }
       return {
@@ -28,7 +29,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         tasks: state.tasks.map(task => 
           task.id === action.payload.id 
-            ? { ...task, name: action.payload.name, date: action.payload.date } 
+            ? { ...task, ...action.payload} 
             : task
         ),
         };

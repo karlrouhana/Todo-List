@@ -43,7 +43,7 @@
 
 .crossed{
     text-decoration: line-through;
-    color: gray;
+    color: gray !important;
 }
 
 .task__edit{
@@ -64,4 +64,5 @@
 .task__edit-buttons{
     display: flex;
 }
+
 
