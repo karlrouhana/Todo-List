@@ -53,11 +53,15 @@ const Task = ({ task, deleteTask, editTask }) => {
         </form>
       ) : (
         <div className="task__content">
-
-          <input type="checkbox" checked={task.checked} onChange={handleCheck} />
-          <div className="task__content-details">
-            <p className={task.checked ? 'crossed' : ''}>{task.name}</p>
-            <p className={task.checked ? 'crossed' : ''}>{task.date}</p>
+          <div className="task__content-inputs">
+            <label class="tasks-list-item">
+              <input type="checkbox" checked={task.checked} onChange={handleCheck} name="task_1" class="tasks-list-cb" />
+              <span class="tasks-list-mark"></span>
+            </label>
+            <div className="task__content-details">
+              <p className={task.checked ? 'crossed' : ''}>{task.name}</p>
+              <p className={task.checked ? 'crossed' : ''}>{task.date}</p>
+            </div>
           </div>
           <div className="buttons">
             <Button onClick={() => deleteTask(task.id)} className="danger" value="Delete" />

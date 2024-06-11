@@ -24,8 +24,8 @@ const TaskList = ({ tasks, deleteTask }) => {
         <button onClick={() => setFilter('active')} className={filter === 'active' ? "active" : "tasklist__buttons-filter"}>Active</button>
       </div>
       <div>
-        {filteredTasks.map((task, index) => (
-          <Task key={index} task={task} deleteTask={deleteTask} />
+        {filteredTasks.map((task) => (
+          <Task key={task.id} task={task} deleteTask={deleteTask} />
         ))}
       </div>
     </div>

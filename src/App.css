@@ -1,7 +1,26 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(80, 43, 226);
+  display: flex;
+  justify-content: center;
+}
+
 .App{
   background-color: white;
   width: 650px;
   border-radius: 20px;
   padding: 2rem 4rem;
   margin-top: 5rem;
+}
+
+@media screen and (max-width: 650px) {
+  .App {
+    width: calc(100dvw - (4rem));
+    margin: 2rem 4rem;
+    padding: 1rem 2rem;
+  }
 }

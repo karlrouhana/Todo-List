@@ -10,6 +10,7 @@
     font-size: 12px;
     font-weight: bold;
     color: rgb(80, 43, 226);
+    cursor: pointer;
 }
 
 .active{
@@ -20,4 +21,11 @@
     color: white;
     font-weight: bold;
 
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 650px) {
+    .tasklist__buttons-filter, .active{
+        font-size: 10px;
+    }
 }
