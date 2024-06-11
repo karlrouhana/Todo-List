@@ -1,11 +1,10 @@
 // Header.js
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { toggleForm } from '../../redux/actions';
 import TaskForm from '../taskform/TaskForm';
 import './header.css';
 
-const Header = ({ toggleForm, tasks }) => {
+const Header = ({ tasks }) => {
   const [visibile, setVisible] = useState(false);
 
   const currentDate = new Date();
@@ -41,8 +40,4 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {
-  toggleForm,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

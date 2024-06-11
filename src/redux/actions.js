@@ -1,16 +1,17 @@
 // actions.js
-import { ADD_TASK, DELETE_TASK, TOGGLE_FORM } from './actionTypes';
+import { ADD_TASK, DELETE_TASK, EDIT_TASK } from './actionTypes';
 
-export const addTask = (name, date) => ({
+export const addTask = (task) => ({
   type: ADD_TASK,
-  payload: {name, date},
-});
-
-export const deleteTask = (task) => ({
-  type: DELETE_TASK,
   payload: task,
 });
 
-export const toggleForm = () => ({
-  type: TOGGLE_FORM,
+export const deleteTask = (id) => ({
+  type: DELETE_TASK,
+  payload: id,
+});
+
+export const editTask = (task) => ({
+  type: EDIT_TASK,
+  payload: task
 });

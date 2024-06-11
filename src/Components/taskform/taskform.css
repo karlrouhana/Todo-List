@@ -1,5 +1,20 @@
 .taskform{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.taskform__inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.taskform__buttons{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .add-task-btn{
