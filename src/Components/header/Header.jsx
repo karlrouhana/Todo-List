@@ -1,11 +1,12 @@
 // Header.js
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import TaskForm from '../taskform/TaskForm';
 import './header.css';
 
-const Header = ({ tasks, count }) => {
+const Header = ({ count }) => {
   const [visibile, setVisible] = useState(false);
+  const tasks = useSelector((state) => state.tasks.tasks);
 
   const currentDate = new Date();
   const options = { weekday: 'long', day: 'numeric', month: 'short' };
@@ -34,10 +35,4 @@ const Header = ({ tasks, count }) => {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    tasks: state.tasks
-  };
-};
-
-export default connect(mapStateToProps)(Header);
+export default Header;

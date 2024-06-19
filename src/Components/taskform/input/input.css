@@ -4,6 +4,7 @@ input{
     border-radius: 20px;
     color: rgb(80, 43, 226);
     font-weight: bold;
+    width: 100%;
 }
 input::placeholder{
     color: rgb(80, 43, 226);

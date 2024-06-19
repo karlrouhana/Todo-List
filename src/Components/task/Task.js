@@ -1,12 +1,13 @@
 // Task.js
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Button from '../button/Button';
 import Input from '../taskform/input/Input';
-import { editTask } from '../../redux/actions';
+import { editTask } from '../../redux/createSlice';
 import './task.css';
 
-const Task = ({ task, deleteTask, editTask }) => {
+const Task = ({ task, deleteTask }) => {
+  const dispatch = useDispatch();
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState(task.name);
   const [date, setDate] = useState(task.date);
@@ -24,13 +25,13 @@ const Task = ({ task, deleteTask, editTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name.trim() || !date.trim()) return;
-    editTask(newTask);
+    dispatch(editTask(newTask));
     setEdit(false);
   };
 
   const handleCheck = () => {
     const updatedTask = { ...task, checked: !task.checked };
-    editTask(updatedTask);
+    dispatch(editTask(updatedTask));
   };
 
   const handleEdit = () => {
@@ -43,7 +44,7 @@ const Task = ({ task, deleteTask, editTask }) => {
         <form onSubmit={handleSubmit} className="task__edit">
           <div className="task__edit-input">
             <Input type="text" value={name} onChange={handleName} />
-            <Input type="text" value={date} onChange={handleDate} />
+            <Input type="date" value={date} onChange={handleDate} />
           </div>
 
           <div className="task__edit-buttons">
@@ -64,7 +65,7 @@ const Task = ({ task, deleteTask, editTask }) => {
             </div>
           </div>
           <div className="buttons">
-            <Button onClick={() => deleteTask(task.id)} className="danger" value="Delete" />
+            <Button onClick={() => dispatch(deleteTask(task.id))} className="danger" value="Delete" />
             <Button className="secondary" onClick={handleEdit} value="Edit" />
           </div>
         </div>
@@ -73,8 +74,5 @@ const Task = ({ task, deleteTask, editTask }) => {
   );
 };
 
-const mapDispatchToProps = {
-  editTask,
-};
 
-export default connect(null, mapDispatchToProps)(Task);
+export default Task;

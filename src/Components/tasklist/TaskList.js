@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import Task from '../task/Task';
-import { deleteTask } from '../../redux/actions';
+import { useSelector } from 'react-redux';
+import { deleteTask } from '../../redux/createSlice';
 import './tasklist.css';
 
-const TaskList = ({ tasks, deleteTask, onFilterChange }) => {
+const TaskList = ({ onFilterChange }) => {
   const [filter, setFilter] = useState('all');
   const [filteredTasks, setFilteredTasks] = useState([]);
+  const tasks = useSelector((state) => state.tasks.tasks);
 
   useEffect(() => {
     filterTasks();
@@ -42,8 +43,4 @@ const TaskList = ({ tasks, deleteTask, onFilterChange }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  tasks: state.tasks,
-});
-
-export default connect(mapStateToProps, { deleteTask })(TaskList);
+export default TaskList;
