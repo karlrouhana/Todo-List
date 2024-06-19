@@ -1,20 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Task from '../task/Task';
 import { deleteTask } from '../../redux/actions';
 import './tasklist.css';
 
-const TaskList = ({ tasks, deleteTask }) => {
+const TaskList = ({ tasks, deleteTask, onFilterChange }) => {
   const [filter, setFilter] = useState('all');
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
-  const filteredTasks = filter === 'all' ? tasks : tasks.filter(task => {
-    if (filter === 'completed') {
-      return task.checked;
-    } else if (filter === 'active') {
-      return !task.checked;
-    }
-    return true;
-  });
+  useEffect(() => {
+    filterTasks();
+  }, [tasks, filter]);
+
+  const filterTasks = () => {
+    const filtered = filter === 'all' ? tasks : tasks.filter(task => {
+      if (filter === 'completed') {
+        return task.checked;
+      } else if (filter === 'active') {
+        return !task.checked;
+      }
+      return true;
+    });
+    setFilteredTasks(filtered);
+    onFilterChange(filtered.length);
+  };
+
 
   return (
     <div>

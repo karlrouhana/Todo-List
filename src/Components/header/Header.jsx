@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TaskForm from '../taskform/TaskForm';
 import './header.css';
 
-const Header = ({ tasks }) => {
+const Header = ({ tasks, count }) => {
   const [visibile, setVisible] = useState(false);
 
   const currentDate = new Date();
@@ -20,7 +20,7 @@ const Header = ({ tasks }) => {
     <div className="header">
       <div className="header__content">
         <h1>{formattedDate}</h1>
-        <p>{tasks.length}</p>
+        <p>{count}</p>
       </div>
       <div>
         {!visibile ?
